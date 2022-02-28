@@ -3,7 +3,13 @@ import { ReactElement } from "react";
 export interface Props {
   product: Product,
   children?: ReactElement | ReactElement[],
+  className?: string,
 }
+
+export interface PropsStyle {
+  className?: string,
+}
+
 
 export interface Product {
     id: string,
@@ -19,10 +25,10 @@ export interface ProductContextProps {
 }
 
 export interface ProductHOC {
-  ({ children, product }: Props): JSX.Element,
-  Title: () => JSX.Element,
-  Image: () => JSX.Element,
-  Buttons: () => JSX.Element,
+  ({ children, product, className }: Props): JSX.Element,
+  Title: ({className}:{className?:string}) => JSX.Element,
+  Image: ({className}:{className?:string}) => JSX.Element,
+  Buttons: ({className}:{className?:string}) => JSX.Element,
 }
 
 
