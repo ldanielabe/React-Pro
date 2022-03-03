@@ -4,7 +4,14 @@ export interface Props {
   product: Product,
   children?: ReactElement | ReactElement[],
   className?: string,
-  style?: CSSProperties
+  style?: CSSProperties,
+  onChange?: (args: onChangeArgs)=> void,
+  value?: number,
+}
+
+export interface onChangeArgs{
+  product:Product, 
+  count:number
 }
 
 export interface PropStyle {
@@ -27,10 +34,16 @@ export interface ProductContextProps {
 }
 
 export interface ProductHOC {
-  ({ product, children, className, style }: Props): JSX.Element,
+  ({ product, children, className, style, onChange, value }: Props): JSX.Element,
   Title: ({className}:PropStyle) => JSX.Element,
   Image: ({className}:PropStyle) => JSX.Element,
   Buttons: ({className}:PropStyle) => JSX.Element,
 }
 
+
+export interface useProductArgs{
+  product:Product,
+  onChange?: (args:onChangeArgs)=> void,
+  value?:number,
+}
 
