@@ -7,6 +7,12 @@ export interface Props {
   style?: CSSProperties,
   onChange?: (args: onChangeArgs)=> void,
   value?: number,
+  initialValues?: InitialValues,
+}
+
+export interface InitialValues{
+  count?:number,
+  maxCount?:number,
 }
 
 export interface onChangeArgs{
@@ -34,7 +40,7 @@ export interface ProductContextProps {
 }
 
 export interface ProductHOC {
-  ({ product, children, className, style, onChange, value }: Props): JSX.Element,
+  ({ product, children, className, style, onChange, value, initialValues }: Props): JSX.Element,
   Title: ({className}:PropStyle) => JSX.Element,
   Image: ({className}:PropStyle) => JSX.Element,
   Buttons: ({className}:PropStyle) => JSX.Element,
@@ -45,5 +51,6 @@ export interface useProductArgs{
   product:Product,
   onChange?: (args:onChangeArgs)=> void,
   value?:number,
+  initialValues?: InitialValues
 }
 

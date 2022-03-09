@@ -31,22 +31,35 @@ export const ShopingPage = () => {
 
     setShoppingCart((oldShoppingCart)=>{
 
-      if(count===0){
+      const productInCart:ProductInCart = oldShoppingCart[product.id] || {...product, count:0};
 
-        const {[product.id]: toDelete, ...rest}= oldShoppingCart;
-        console.log('toDelete ',toDelete);
-
+      if(Math.max(productInCart.count+ count, 0) > 0){
+        productInCart.count += count;
         return {
-          ...rest
-         }
+          ...oldShoppingCart,
+          [product.id]: productInCart
+        }
       }
-      return{
-        ...oldShoppingCart,
-        [product.id]: {...product, count}
-      }
+
+      //Borrar el producto
+      const {[product.id]: toDelete, ...rest}= oldShoppingCart;
+      return rest;
+
+      // if(count===0){
+
+      //   const {[product.id]: toDelete, ...rest}= oldShoppingCart;
+
+      //   return {
+      //     ...rest
+      //    }
+      // }
+      // return{
+      //   ...oldShoppingCart,
+      //   [product.id]: {...product, count}
+      // }
     }); 
 
-    console.log(shoppingCart);
+    console.log('count', count);
 
   }
 
@@ -62,8 +75,12 @@ export const ShopingPage = () => {
           key={p.id} 
           product={p} 
           className="bg-dark" 
-          onChange={(e)=>onProductChange(e)}
-          value={shoppingCart[p.id]?.count||0}
+          // onChange={(e)=>onProductChange(e)}
+          // value={shoppingCart[p.id]?.count||0}
+          initialValues={{
+            count:4,
+            maxCount:15,
+          }}
           >
               <ProductCard.Image className="custom-image"/>
               <ProductCard.Title className="text-white"/>
@@ -81,8 +98,9 @@ export const ShopingPage = () => {
           product={p} 
           className="bg-dark" 
           style={{width:'100px'}} 
-          onChange={(e)=>onProductChange(e)}
-          value={p.count}>
+          // onChange={(e)=>onProductChange(e)}
+          // value={p.count}
+          >
               <ProductCard.Image className="custom-image"/>
               <ProductCard.Title className="text-white"/>
               <ProductCard.Buttons className="custom-buttons" />
