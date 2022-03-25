@@ -70,10 +70,10 @@ export const ShopingPage = () => {
       <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
         
         {
-          products.map( p =>(
+          // products.map( p =>(
           <ProductCard 
-          key={p.id} 
-          product={p} 
+          key={products[0].id} 
+          product={products[0]} 
           className="bg-dark" 
           // onChange={(e)=>onProductChange(e)}
           // value={shoppingCart[p.id]?.count||0}
@@ -82,30 +82,53 @@ export const ShopingPage = () => {
             maxCount:15,
           }}
           >
-              <ProductCard.Image className="custom-image"/>
-              <ProductCard.Title className="text-white"/>
-              <ProductCard.Buttons className="custom-buttons" />
+
+          {
+            ({count, 
+              increaseBy,
+              isMaxCountReached,
+              maxCount,
+              product,
+              reset})=>(
+              <>
+                <ProductCard.Image className="custom-image"/>
+                <ProductCard.Title className="text-white"/>
+                <ProductCard.Buttons className="custom-buttons" />
+                
+                <button onClick={reset}>Reset</button>
+                
+                <button onClick={()=>increaseBy(-2)}>-2</button>
+
+                { !isMaxCountReached && <button onClick={()=>increaseBy(+1)}>+2</button> }
+
+                <span>{count} - {maxCount}</span>
+              </>
+            )
+          }
+          
           </ProductCard>
-          ))
+          // ))
         }
 
         <div className="shopping-cart">
         { 
         //Objet.entries(shoppingCart).map(([key, product])=>)
-         Object.values(shoppingCart).map(p => 
-          <ProductCard 
-          key={p.id} 
-          product={p} 
-          className="bg-dark" 
-          style={{width:'100px'}} 
-          // onChange={(e)=>onProductChange(e)}
-          // value={p.count}
-          >
-              <ProductCard.Image className="custom-image"/>
-              <ProductCard.Title className="text-white"/>
-              <ProductCard.Buttons className="custom-buttons" />
-          </ProductCard>
-        )
+        
+        
+        // Object.values(shoppingCart).map(p => 
+        //     <ProductCard 
+        //     key={p.id} 
+        //     product={p} 
+        //     className="bg-dark" 
+        //     style={{width:'100px'}} 
+        //     // onChange={(e)=>onProductChange(e)}
+        //     // value={p.count}
+        //     >
+        //         <ProductCard.Image className="custom-image"/>
+        //         <ProductCard.Title className="text-white"/>
+        //         <ProductCard.Buttons className="custom-buttons" />
+        //     </ProductCard>
+        //   )
         }
          
         </div>
