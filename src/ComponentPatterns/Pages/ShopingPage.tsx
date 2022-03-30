@@ -99,7 +99,7 @@ export const ShopingPage = () => {
                 
                 <button onClick={()=>increaseBy(-2)}>-2</button>
 
-                { !isMaxCountReached && <button onClick={()=>increaseBy(+1)}>+2</button> }
+                { !isMaxCountReached && <button onClick={()=>increaseBy(+2)}>+2</button> }
 
                 <span>{count} - {maxCount}</span>
               </>

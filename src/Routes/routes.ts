@@ -2,6 +2,7 @@ import { lazy, LazyExoticComponent } from 'react';
 import { ShopingPage } from '../ComponentPatterns/Pages/ShopingPage';
 import { LazyPages3 } from '../LazyLoad/Pages';
 import WithoutLazy from '../LazyLoad/Pages/WithoutLazy';
+import { RegisterPage } from '../Form/Pages/RegisterPage';
 
 type Element = () => JSX.Element;
 
@@ -32,5 +33,11 @@ export const route: Route[] =[
         path: 'shopping',
         Component: ShopingPage,
         name: 'Shopping'
+    },
+    {
+        to: '/register',
+        path: 'register',
+        Component: RegisterPage,
+        name: 'Register'
     }
 ];
