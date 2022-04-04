@@ -3,6 +3,8 @@ import { ShopingPage } from '../ComponentPatterns/Pages/ShopingPage';
 import { LazyPages3 } from '../LazyLoad/Pages';
 import WithoutLazy from '../LazyLoad/Pages/WithoutLazy';
 import { RegisterPage } from '../Form/Pages/RegisterPage';
+import { FormikBasicPage } from '../ComponentPatterns/Pages/FormikBasicPage';
+import { FormikYupPage } from '../ComponentPatterns/Pages/FormikYupPage';
 
 type Element = () => JSX.Element;
 
@@ -39,5 +41,17 @@ export const route: Route[] =[
         path: 'register',
         Component: RegisterPage,
         name: 'Register'
+    },
+    {
+        to: '/formikBasic',
+        path: 'formikBasic',
+        Component: FormikBasicPage,
+        name: 'Formik Basic'
+    },
+    {
+        to: '/formikYup',
+        path: 'formikYup',
+        Component: FormikYupPage,
+        name: 'Formik Yup'
     }
 ];

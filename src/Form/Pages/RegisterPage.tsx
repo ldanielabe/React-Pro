@@ -16,8 +16,6 @@ export const RegisterPage = () => {
   console.log(formData);
   }
 
-
-
   return (
   <div>
 
@@ -54,7 +52,7 @@ export const RegisterPage = () => {
             
             <button type="submit">Send</button>
 
-            <button type="button" onClick={resetFotm}>Reset</button>
+            <button type="button" onClick={resetFotm }>Reset</button>
 
         </form>
   </div>
