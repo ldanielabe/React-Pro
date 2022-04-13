@@ -2,16 +2,10 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import '../Styles/styles.css';
 
-interface FormValues {
-    firstName: string;
-    lastName: string;
-    email: string;
-}
-
 export const FormikYupPage = () => {
 
  
-    const { handleChange, values, handleSubmit, errors, touched, handleBlur, getFieldProps } = useFormik({
+    const { handleSubmit, errors, touched, getFieldProps } = useFormik({
         initialValues: {
             firstName: '',
             lastName: '',

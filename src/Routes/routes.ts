@@ -5,6 +5,8 @@ import WithoutLazy from '../LazyLoad/Pages/WithoutLazy';
 import { RegisterPage } from '../Form/Pages/RegisterPage';
 import { FormikBasicPage } from '../ComponentPatterns/Pages/FormikBasicPage';
 import { FormikYupPage } from '../ComponentPatterns/Pages/FormikYupPage';
+import { FormikComponentsPage } from '../ComponentPatterns/Pages/FormikComponentsPage';
+import { FormikAbstractPage } from '../ComponentPatterns/Pages/FormikAbstractPage';
 
 type Element = () => JSX.Element;
 
@@ -53,5 +55,17 @@ export const route: Route[] =[
         path: 'formikYup',
         Component: FormikYupPage,
         name: 'Formik Yup'
+    },
+    {
+        to: '/formikComponents',
+        path: 'formikComponents',
+        Component: FormikComponentsPage,
+        name: 'Formik Components'
+    },
+    {
+        to: '/formikAbstract',
+        path: 'formikAbstract',
+        Component: FormikAbstractPage,
+        name: 'Formik Abstract'
     }
 ];
