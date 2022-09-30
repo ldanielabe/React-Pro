@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useProductArgs, InitialValues } from '../Interfaces/Interfaces';
+import { useProductArgs } from '../Interfaces/Interfaces';
 
 
 export const useProduct = ({product,onChange, value = 0, initialValues}: useProductArgs) => {

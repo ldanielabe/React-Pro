@@ -1,10 +1,10 @@
 import '../Styles/styles.css';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
 import { useForm } from '../Hooks/useForm';
 
 export const RegisterPage = () => {
 
-  const {formData, setFormData, onChange, name, email, password1, password2, resetFotm}=useForm({
+  const {formData, onChange, name, email, password1, password2, resetFotm}=useForm({
     name: '',
     email: '',
     password1: '',

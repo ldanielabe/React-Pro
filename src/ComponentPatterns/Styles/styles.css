@@ -11,10 +11,10 @@ input, select {
 }
 
 
-button {
+/* button {
     margin-top: 20px;
     padding: 10px;
-}
+} */
 
 span, .error-message {
     color: red;
