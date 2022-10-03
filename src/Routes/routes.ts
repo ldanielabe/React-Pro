@@ -8,6 +8,8 @@ import { FormikYupPage } from '../ComponentPatterns/Pages/FormikYupPage';
 import { FormikComponentsPage } from '../ComponentPatterns/Pages/FormikComponentsPage';
 import { FormikAbstractPage } from '../ComponentPatterns/Pages/FormikAbstractPage';
 import { RegisterFormikPage } from '../Form/Pages/RegisterFormikPage'
+import { DynamicFormPage } from '../Form/Pages/DynamicFormPage'
+
 type Element = () => JSX.Element;
 
 interface Route{
@@ -73,5 +75,11 @@ export const route: Route[] =[
         path: 'formikRegister',
         Component: RegisterFormikPage,
         name: 'Formik Register'
+    },
+    {
+        to: '/dynamicForm',
+        path: 'dynamicForm',
+        Component: DynamicFormPage,
+        name: 'Dynamic Form'
     }
 ];
