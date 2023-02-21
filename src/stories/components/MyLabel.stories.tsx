@@ -3,7 +3,10 @@ import { MyLabel } from "../../components/MyLabel";
 
 export default{
     title: 'UI/MyLabel',
-    component: MyLabel
+    component: MyLabel,
+    argTypes: {
+        size: {control: 'select', options: ['normal', 'h1', 'h2', 'h3']}
+    }
 } as ComponentMeta<typeof MyLabel>
 
 const Template:ComponentStory<typeof MyLabel> = (args) => <MyLabel {...args}/>
@@ -30,4 +33,10 @@ export const Tertiary = Template.bind({})
 Tertiary.args={
     size: 'h3',
     color: 'tertiary'
+}
+
+export const CustomColor = Template.bind({})
+CustomColor.args={
+    size: 'h1',
+    fontColor: '#5517ac'
 }

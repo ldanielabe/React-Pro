@@ -16,17 +16,25 @@ export interface Props{
   /**
    * Is this the color of the label
    */
-  color?: 'primary'|'secondary'|'tertiary'
+  color?: 'primary'|'secondary'|'tertiary',
+
+   /**
+   * Is this the custom color of the font
+   */
+  fontColor?: string
+
 
 }
 export const MyLabel = ({
   allCaps= false,
   color='primary',
   label= 'No Label',
-  size= 'normal'
+  size= 'normal',
+  fontColor
 }: Props) => {
   return (
-    <div className={`${size} text-${color}`}>
+    <div className={`${size} text-${color}`}
+    style={{ color: fontColor}}>
       {allCaps?label.toUpperCase():label}
     </div>
   )
